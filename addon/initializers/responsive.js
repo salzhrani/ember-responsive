@@ -14,6 +14,7 @@ export function initialize(container, application) {
       Ember.warn('Breakpoints not found they should be defined in app/breakpoints.js');
     }
   }
+  Ember.set(media, 'isStandalone',  !!(window && window.navigator.standalone) );
   application.register('responsive:media', media, { instantiate: false });
   application.inject('controller', 'media', 'responsive:media');
   application.inject('component', 'media', 'responsive:media');
